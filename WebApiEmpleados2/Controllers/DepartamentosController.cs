@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.EntityFrameworkCore;
 using WebApiEmpleados2.DTOs;
 using WebApiEmpleados2.Entidades;
@@ -12,7 +11,7 @@ namespace WebApiEmpleados2.Controllers
 {
     [ApiController]
     [Route("puestos/{puestoId:int}/departamentos")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "esEmpleado")]
     
     public class DepartamentosController : ControllerBase
     {
